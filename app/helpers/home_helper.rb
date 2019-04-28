@@ -1,14 +1,11 @@
 module HomeHelper
    def trim_title(url, title)
-      
       max_len = 64
-      title.gsub!(/\n/, " ")
-      link = "<a href='#{url}' target='_blank'>X</a>"
-      fixed = title 
-      if title.length > max_len
-         fixed = title[0..max_len].gsub(/\s\w+\s*$/,'...')
+      fixed = title.gsub(/\n/, " ")
+      if fixed.length > max_len
+         fixed = fixed[0..max_len].gsub(/\s\w+\s*$/,'...')
       end
-      return link.gsub(/X/, fixed)
+      return "<a href='#{url}' target='_blank'>#{fixed}</a>"
    end
    
    def author( a ) 
